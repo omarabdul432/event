@@ -1,0 +1,76 @@
+<ion-content [fullscreen]="true" color="light">
+
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-title>Cart</ion-title>
+      <ion-button>
+        <ion-back-button defaultHref="/home" slot="start"></ion-back-button>
+
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+
+  @for (item of book.getbooking() ; track $index) {
+  <ion-list lines="none" slot="">
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <div [style.backgroundImage]="'url('+item.image+')'"></div>
+      </ion-thumbnail>
+      <ion-label>
+        <ion-text>{{item.name}}</ion-text>
+        <p>{{item.date | date:'MMM d,yyyy'}}</p>
+        <h3> $ {{item.price}}</h3>
+      </ion-label>
+
+      <ion-label slot="end" class="btn">
+        <ion-button (click)="delete(item)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      <ion-buttons>
+        <ion-button size="medium" (click)="decrease(item.id)">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+        {{item.quantity}}
+        <ion-button size="medium" (click)="increase(item.id)">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  }
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Summary</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-border">
+      <ion-row class="line" >
+        <ion-col size="9">
+          <p>Bill Amount :</p>
+          <p>Discount :</p>
+        </ion-col>
+        <ion-col size="3">
+          <p>$ {{book.getTotal()}}</p>
+          <p>$ 000</p>
+        </ion-col>
+      </ion-row>
+      <ion-label>
+        <ion-row>
+          <ion-col size="9">
+            <p>Total Amount :</p>
+          </ion-col>
+
+          <ion-col size="3">
+            <p>$ {{book.getTotal()}} </p>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button expand="block" [strong]="true" shape="round" size="large">Get a Ticket</ion-button>
+</ion-footer>

@@ -1,0 +1,43 @@
+
+<ion-content [fullscreen]="true">
+    
+    <ion-label class="ion-padding" color="secondary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home">
+        </ion-back-button>
+      </ion-buttons>
+    </ion-label>
+    <div class="header">
+  
+
+    <p class="title">Welcome Back !</p>
+    <P class="subtitle">signin to access your account</P>
+  </div>
+
+  <form [formGroup]="signin">
+    <div class="ion-padding"> 
+      <ion-item lines="none" color="light">
+        <ion-input placeholder="Email" name="email" type="email" formControlName="email"></ion-input>
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-item>
+      @if(signin.controls['email'].touched && signin.controls['email'].errors?.['required']){
+        <p  class="error">Email Required !</p>
+      }
+      <ion-item lines="none" color="light">
+        <ion-input placeholder="password" name="password" type="password" formControlName="password"></ion-input>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
+      @if(signin.controls['password'].touched && signin.controls['password'].errors?.['required']){
+        <p  class="error">Password Required !</p>
+      }
+
+      <ion-button expand="full" shape="round" strong="true" (click)="submit()">SignIn</ion-button>
+    </div>
+
+    <ion-text><a >Forget Password ?</a></ion-text>
+    <div class="signup">
+      <p>Don't have an account ? <a routerLink="/signup">SignUp</a></p>
+    </div>
+  
+  </form>
+</ion-content>

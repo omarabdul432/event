@@ -1,0 +1,97 @@
+
+ion-toolbar{
+    ion-title{
+        font-size: 1.7rem;
+      
+    }
+    ion-button{
+        --background:transparent;
+    }
+}
+
+ion-list{
+    margin: 10px;
+    border-radius: 25px;
+    height: 6rem;
+    align-content: center;
+    ion-item{
+        align-content: center;
+        ion-thumbnail{
+            div{
+                height: 4rem;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+        ion-label{
+            // margin-top: 5px;
+            ion-text{
+                font-size: 1.25rem;
+                font-weight: bold;    
+            }
+            p{
+                margin-top: 5px;
+                font-size: 1rem;
+                font-weight: 300;
+            }
+            h3{
+                margin-top: 5px;
+                color: gray;
+                font-weight: bold;
+                font-size: 1rem;
+            }
+        }
+        ion-button{
+        //    margin-right: 5px;
+        }
+        ion-label.btn{
+            align-items: center;
+            justify-content: center;
+
+            // display: flex;
+            // flex-direction: column;
+            // // justify-content: center;
+            // // align-content: center;
+        }
+    }
+}
+
+ion-card{
+    border-radius: 25px;
+    ion-card-title{
+        text-align: center;
+    }
+    ion-card-content{
+        .line{
+        border-bottom: 1px solid gray;
+        margin-bottom: 5px;    
+        }
+        margin: 8px;
+        ion-col{
+            p{
+                font-size: 1.1rem;
+                color: gray;
+                margin-top: 2px;
+            }
+        }
+        ion-label{
+            // margin-top: 10px;
+            // padding: 3px;
+            p{
+                font-size: 1.1rem;
+                color: black;
+                font-weight: bold;
+
+            }
+        }
+    }
+}
+
+ion-footer{
+    --background:transparent;
+    ion-button{
+        border-radius: 25px;
+    }
+}
+

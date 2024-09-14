@@ -1,0 +1,19 @@
+ion-content{
+   swiper-container{
+    height: 100%;
+    div{
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+   }
+}
+
+ion-footer{
+    ion-toolbar{
+        --background:black;
+        padding: 10px;
+    }
+
+}

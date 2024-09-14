@@ -1,20 +1,111 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="wrapper">
+    <ion-item lines="none">
+      <ion-label>
+        <div >
+          <ion-icon name="locate-outline"></ion-icon>
+          <ion-text>Events near me</ion-text>
+        </div>
+        <p>Chennai,India</p>
+      </ion-label>
+
+      <ion-fab-button size="small">
+        <ion-icon name="notifications-outline" color="medium" size="small"></ion-icon>
+      </ion-fab-button>
+    </ion-item>
+
+    <ion-toolbar class="srcbar">
+      <ion-row>
+        <ion-col size="10">
+          <ion-searchbar placeholder="search here"></ion-searchbar>
+        </ion-col>
+        <ion-col size="2">
+          <ion-fab-button size="small" color="secondary-contrast">
+            <ion-icon name="options-outline" size="medium"></ion-icon>
+          </ion-fab-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="light">
+  <ion-list class="ion-margin-top">
+    <ion-list-header>Upcoming events</ion-list-header>
+    <swiper-container [modules]="swiperModules" [slidesPerView]="1.1" [centerSlides]="true">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      @for (item of upcomingevents; track $index) {
+      <swiper-slide>
+        <ion-card>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img [src]="item.image" alt="">
+            </ion-thumbnail>
+            <ion-label>
+              <p class="date">
+                <ion-text>{{item.date | date : 'dd.M.yyyy'}}</ion-text>
+              </p>
+              <p class="title">
+                <ion-text color="dark">{{item.name}}</ion-text>
+              </p>
+              <p class="location">
+                <ion-icon name="location-outline"></ion-icon>
+                <ion-text>{{item.location}}</ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+
+    <ion-list>
+      <ion-item-divider color="light">
+        Top Picks
+        <img src="../../assets/imgs/fire.png" alt="" style="height: 1rem; width: 1rem; margin-left: 3px;">
+
+        <ion-button slot="end" fill="clear" color="medium">View All</ion-button>
+      </ion-item-divider>
+    </ion-list>
+
+    <swiper-container [modules]="swiperModules" [slidesPerView]="2.6" [centerSlides]="true">
+      <swiper-slide>
+        <ion-card class="category">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img src="../../assets/imgs/all.png" alt="">
+            </ion-avatar>
+            <ion-label>All</ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      @for (item of categories; track $index) {
+      <swiper-slide>
+        <ion-card class="category" (click)="categorylist(item.id)">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img [src]="item.image" alt="">
+            </ion-avatar>
+            <ion-label>{{item.name}}</ion-label>
+          </ion-item>
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </ion-list>
+
+  @for (item of currentevents; track $index) {
+    <ion-card [style.backgroundImage]="'url('+item.image+')'" class="event2" color="light" [routerLink]="['/events',item.id]">
+      <ion-item lines="none">
+          <ion-label>
+            <ion-text>{{item.date | date:'MMM d,yyyy'}}</ion-text>
+            <p class="name">{{item.name}}</p>
+          </ion-label>
+
+          <ion-fab-button slot="end" size="small">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </ion-fab-button>
+      </ion-item>
+    </ion-card>
+  }
 </ion-content>
