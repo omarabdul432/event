@@ -1,0 +1,23 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab($event)">
+  
+  <ion-tab-bar slot="botttom" class="ion-no-border">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline" color="light"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="bookticket">
+      <ion-icon name="cart-outline" color="light"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="get-ticket">
+      <ion-icon name="ticket-outline" color="light"></ion-icon>
+    </ion-tab-button>
+  
+
+  <ion-tab-button tab="profile">
+    <ion-icon name="person-circle-outline" color="light"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+</ion-tabs>
+

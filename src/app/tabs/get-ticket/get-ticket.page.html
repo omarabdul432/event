@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-title>My Ticket</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="/tabs/bookticket"></ion-back-button>
+    </ion-button>
+    <ion-button slot="end">
+      <ion-icon name="download-outline" size="large" color="dark"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+
+  <img [src]="event.image" alt="">
+  <ion-button color="primary" (click)="getBarcodeData(event)">
+      <ion-text>Get barcode</ion-text>
+  </ion-button>  
+  
+
+  <ion-card>
+    <ion-card-content>
+      <svg id="barcode"></svg>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-card >
+    <ion-card-content>
+      <qrcode [qrdata]="'Scan to get your tickets'" [width]="350"  [errorCorrectionLevel]="'L'"></qrcode>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>

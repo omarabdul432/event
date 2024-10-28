@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar color="light">
+      <ion-button fill="clear">
+        <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+      </ion-button>
+
+      <ion-title>Profile</ion-title>
+
+      <ion-button slot="end" fill="clear" size="" (click)="logout()" >
+          <ion-icon name="log-out-outline" size="large" color="dark" ></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true" >
+      <ion-toolbar class="wrapper">
+        <ion-avatar slot="start">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi9IJhVBrz8l52KT562tEmbSAicfFzkTLdKg&s" alt="">
+        </ion-avatar>
+
+        <ion-label><p>Omar</p></ion-label>
+      </ion-toolbar>
+      <ion-card>
+        <ion-card-header>Account Overview</ion-card-header>
+        <ion-card-content class="card">
+          <ion-thumbnail slot="start">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          </ion-thumbnail>
+          <ion-text>My Profile</ion-text>
+          <ion-icon name="chevron-forward-outline" class="icon" size="large"></ion-icon>
+        </ion-card-content>
+
+        <ion-card-content class="card">
+          <ion-thumbnail slot="start">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+          </ion-thumbnail>
+          <ion-text>Bookings</ion-text>
+          <ion-icon name="chevron-forward-outline" class="icon" size="large"></ion-icon>
+        </ion-card-content>
+
+        <ion-card-content class="card">
+          <ion-thumbnail slot="start">
+            <ion-icon name="cash-outline" size="large"></ion-icon>
+          </ion-thumbnail>
+          <ion-text>Refund</ion-text>
+          <ion-icon name="chevron-forward-outline" class="icon" size="large" slot="end"></ion-icon>
+        </ion-card-content>
+        
+        <ion-card-content class="card">
+          <ion-thumbnail slot="start">
+            <ion-icon name="cash-outline" size="large"></ion-icon>
+          </ion-thumbnail>
+          <ion-text>change password</ion-text>
+          <ion-icon name="chevron-forward-outline" class="icon" size="large" slot="end"></ion-icon>
+        </ion-card-content>
+      </ion-card>
+      
+</ion-content>
